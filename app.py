@@ -17,5 +17,5 @@ if modulo == "Módulo Listas":
 elif modulo == "Módulo Array":
   st.write("Estas en el módulo de arreglos")
 
-else modulo == "Módulo Funciones":
+else:
   st.write("Estas en el módulo de funciones")
