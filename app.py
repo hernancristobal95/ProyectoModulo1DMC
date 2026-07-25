@@ -37,7 +37,7 @@ elif modulo == "Ejercicio 1":
   
   #Registrar entradas
   concepto = st.text_input("Concepto: ")
-  tipo = st.select_box("Movimiento: ",["Ingreso","Gasto"])
+  tipo = st.selectbox("Movimiento: ", ["Ingreso","Gasto"])
   valor = st.number_input("Valor: ", value = 0)
 
   #Botón para agregar a la lista
