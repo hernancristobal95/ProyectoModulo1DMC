@@ -27,8 +27,7 @@ elif modulo == "Ejercicio 1":
   - Concepto
   - Tipo de movimiento (Ingreso o Gasto)
   - Valor
-  
-  La aplicación mostrará el total de ingresos, gastos, saldo y el estado del flujo de caja (a favor o en contra.""")
+  La aplicación mostrará el total de ingresos, gastos, saldo y el estado del flujo de caja (a favor o en contra).""")
   st.write("Estas en el módulo de arreglos")
   valor_inicial = st.number_input("Ingrese el valor inicial", value = 0)
   valor_final = st.number_input("Ingrese el valor final", value = 1)
