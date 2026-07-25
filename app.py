@@ -151,12 +151,13 @@ else:
   # Título y descripción del ejercicio
   st.title("Ejercicio 4")
   st.markdown("""### Descripción
-  Esta aplicación utiliza una clase externa llamada `ProyectoInversion`.
+  Esta aplicación utiliza una clase externa llamada ProyectoInversion.
   Permite registrar proyectos de inversión y realizar operaciones CRUD:
   - Crear proyectos
   - Leer proyectos registrados
   - Actualizar información
   - Eliminar proyectos
+  
   Además calcula:
   - VPN
   - ROI
