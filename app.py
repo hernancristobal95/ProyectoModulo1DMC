@@ -22,14 +22,13 @@ if modulo == "Home":
   st.markdown("***2026***")
   
 elif modulo == "Ejercicio 1":
+  #Titulo y descripción del ejercicio
   st.title("Ejercicio 1")
   st.markdown("""### Descripción
   Registre los movimientos financieros. Cada movimiento debe tener:
-  
   - Concepto
   - Tipo de movimiento (Ingreso o Gasto)
   - Valor
-  
   La aplicación mostrará el total de ingresos, gastos, saldo y el estado del flujo de caja (a favor o en contra).""")
   #Crear la lista
   if "movimientos" not in st.session_state:
@@ -79,6 +78,7 @@ elif modulo == "Ejercicio 2":
   - Total
   
   Los datos serán almacendos en arrays y convertidos en un DataFrame. """)
+
 
 
 elif modulo == "Ejercicio 3":
