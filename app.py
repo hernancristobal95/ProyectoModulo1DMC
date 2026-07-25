@@ -177,7 +177,7 @@ else:
     tasa = st.number_input("Tasa de descuento (%)", min_value = 0.0)
     if st.button("Crear proyecto"):
       try:
-        flujos = [float(x), for x in flujos_texto.split(",")]
+        flujos = [float(x) for x in flujos_texto.split(",")]
         proyecto = ProyectoInversion(nombre, inversion, flujos,tasa)
         st.session_state.proyectos.append(proyecto)
         st.success("Proyecto creado correctamente")
