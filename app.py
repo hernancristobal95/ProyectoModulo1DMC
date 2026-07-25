@@ -22,22 +22,23 @@ if modulo == "Home":
   st.markdown("***2026***")
   
 elif modulo == "Ejercicio 1":
-  #Titulo y descripción del ejercicio
+  # Titulo y descripción del ejercicio
   st.title("Ejercicio 1")
   st.markdown("""### Descripción
   Registre los movimientos financieros. Cada movimiento debe tener:
   - Concepto
   - Tipo de movimiento (Ingreso o Gasto)
   - Valor
+  
   La aplicación mostrará el total de ingresos, gastos, saldo y el estado del flujo de caja (a favor o en contra).""")
-  #Crear la lista
+  # Crear la lista
   if "movimientos" not in st.session_state:
     st.session_state.movimientos = []
   #Registrar entradas
   concepto = st.text_input("Concepto: ")
   tipo = st.selectbox("Movimiento: ", ["Ingreso","Gasto"])
   valor = st.number_input("Valor: ", value = 0)
-  #Botón para agregar a la lista
+  # Botón para agregar a la lista
   if st.button ("Agregar movimiento"):
     if concepto != "" and valor > 0:
       movimiento = {"Concepto": concepto, "Tipo": tipo, "Valor": valor}
@@ -45,16 +46,16 @@ elif modulo == "Ejercicio 1":
       st.success("Movimiento agregado")
     else:
       st.error("Debe ingresar un concepto y un valor")
-  #Mostrar tabla
+  # Mostrar tabla
   if st.session_state.movimientos:
     df = pd.DataFrame(st.session_state.movimientos)
     st.subheader("Movimientos registrados")
     st.dataframe(df, use_container_width = True)
-  #Calculos
+  # Calculos
     ingresos = df[df["Tipo"] == "Ingreso"]["Valor"].sum()
     gastos = df[df["Tipo"] == "Gasto"]["Valor"].sum()
     saldo = ingresos - gastos
-  #Resultados
+  # Resultados
     st.subheader("Resultados")
     st.metric("Total ingresos", ingresos)
     st.metric("Total gastos", gastos)
@@ -68,6 +69,7 @@ elif modulo == "Ejercicio 1":
 
 
 elif modulo == "Ejercicio 2":
+  # Titulo y descripción del ejercicio
   st.title("Ejercicio 2")
   st.markdown("""### Descripción
   Crear un formulario para registrar productos usando NumPy. Cada registro contiente:
@@ -78,7 +80,23 @@ elif modulo == "Ejercicio 2":
   - Total
   
   Los datos serán almacendos en arrays y convertidos en un DataFrame. """)
-
+  # Crear array
+  if "productos" not in st.session_state:
+  st.session_state.productos = np.empty((0,5), dtype = object)
+  # Formulario para registrar los productos
+  nombre_producto = st.text_input("Nombre:")
+  categoria = st.selectbox("Categoría:",["Alimentos","Bebidas","Tecnología","Deportes","Ropa","Juguetes","Otros"])
+  precio = st.number_input("Precio:", value = 0.50, min_value = 0.50)
+  cantidad = st.num_input("Cantidad:", value = 1, min_value = 1)
+  total = precio * cantidad
+  # Botón para agregar
+  if st.button("Agregar producto"):
+    if nombre_producto != "" and precio > 0.50 and cantidad > 1)
+      registro = np.array([[nombre, categoria, precio, cantidad, total]])
+      st.session_state.productos = np.vstack([st.session_state.productos, registro])
+      st.success("Producto agregado correctamente")
+    else
+      st.error("Ingrese un nombre, un precio valido y una cantidad")
 
 
 elif modulo == "Ejercicio 3":
