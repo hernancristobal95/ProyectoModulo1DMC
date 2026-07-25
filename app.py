@@ -84,18 +84,18 @@ elif modulo == "Ejercicio 2":
   if "productos" not in st.session_state:
   st.session_state.productos = np.empty((0,5), dtype = object)
   # Formulario para registrar los productos
-  nombre_producto = st.text_input("Nombre:")
+  producto = st.text_input("Nombre:")
   categoria = st.selectbox("Categoría:",["Alimentos","Bebidas","Tecnología","Deportes","Ropa","Juguetes","Otros"])
   precio = st.number_input("Precio:", value = 0.50, min_value = 0.50)
   cantidad = st.num_input("Cantidad:", value = 1, min_value = 1)
   total = precio * cantidad
   # Botón para agregar
   if st.button("Agregar producto"):
-    if nombre_producto != "" and precio > 0.50 and cantidad > 1)
+    if producto != "" and precio > 0.50 and cantidad > 1:
       registro = np.array([[nombre, categoria, precio, cantidad, total]])
       st.session_state.productos = np.vstack([st.session_state.productos, registro])
       st.success("Producto agregado correctamente")
-    else
+    else:
       st.error("Ingrese un nombre, un precio valido y una cantidad")
 
 
