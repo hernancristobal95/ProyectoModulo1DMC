@@ -56,7 +56,7 @@ elif modulo == "Ejercicio 3":
   st.title("Ejercicio 3")
 else:
   st.write("Ejercicio 4")
-    st.write("Estas en el módulo de arreglos")
+  st.write("Estas en el módulo de arreglos")
   valor_inicial = st.number_input("Ingrese el valor inicial", value = 0)
   valor_final = st.number_input("Ingrese el valor final", value = 1)
   lista_numerica = list(range(valor_inicial, valor_final))
