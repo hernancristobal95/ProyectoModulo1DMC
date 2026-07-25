@@ -54,7 +54,7 @@ elif modulo == "Ejercicio 1":
   if st.session_state.movimientos:
     df = pd.DataFrame(st.session_state.movimientos)
     st.markdown("### Movimientos registrados ###")
-    st.dataframe(df, use_container_width = True)
+    st.dataframe(df, use_container_width = True, hide_index = True)
 
 elif modulo == "Ejercicio 2":
   st.subheader("Ejercicio 2")
