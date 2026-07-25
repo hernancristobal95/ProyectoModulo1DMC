@@ -53,7 +53,7 @@ elif modulo == "Ejercicio 1":
   #Mostrar tabla
   if st.session_state.movimientos:
     df = pd.DataFrame(st.session_state.movimientos)
-    st.markdown("### Movimientos registrados ###")
+    st.subheader("Movimientos registrados")
     st.dataframe(df, use_container_width = True)
 
   #Calculos
@@ -65,11 +65,11 @@ elif modulo == "Ejercicio 1":
   st.subheader("Resultados")
   col1, col2, col3 = st.columns(3)
   with col1:
-    st.metric("Total ingresos", f"${ingresos:,.2f}")
+    st.metric("Total ingresos", ingresos)
   with col2:
-    st.metric("Total gastos", f"${gastos:,.2f}")
+    st.metric("Total gastos", gastos)
   with col3:
-    st.metric("Saldo", f"${saldo:,.2f}")
+    st.metric("Saldo", saldo)
   if saldo >= 0:
     st.success("Flujo de caja a favor.")
   else:
