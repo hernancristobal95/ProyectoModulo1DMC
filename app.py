@@ -108,7 +108,16 @@ elif modulo == "Ejercicio 2":
 
 
 elif modulo == "Ejercicio 3":
+  #Importamos la funcion
+  from libreria_funciones_proyecto1 import calcular_roi
+  # Titulo y descripción del ejercicio
   st.title("Ejercicio 3")
+  st.markdown("""### Descripción
+  Esta aplicación utiliza un función externa para calcular el ROI, se debe ingresar:
+  - Ganancia neta
+  - Inversion
+    Se calculará el ROI y un historial de resultados. """)
+
 else:
   st.write("Ejercicio 4")
   st.write("Estas en el módulo de arreglos")
