@@ -132,7 +132,7 @@ elif modulo == "Ejercicio 3":
     if inversion > 0:
       resultado = calcular_roi(ganancia, inversion)
       st.subheader("Restulado")
-      st.write ("ROI obtenido:", {resultado['roi_pct']})
+      st.success(f"ROI obtenido: {resultado['roi_pct']} %")
     else:
       st.error("La inversión debe ser mayor a cero")
 
