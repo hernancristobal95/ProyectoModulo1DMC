@@ -52,7 +52,7 @@ elif modulo == "Ejercicio 1":
 
   #Mostrar tabla
   if st.session_state.movimientos:
-    df = pd.DataFrame(st.session_state.movimientos, index = False)
+    df = pd.DataFrame(st.session_state.movimientos)
     st.markdown("### Movimientos registrados ###")
     st.dataframe(df, use_container_width = True)
 
