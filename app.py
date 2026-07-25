@@ -116,7 +116,25 @@ elif modulo == "Ejercicio 3":
   Esta aplicación utiliza un función externa para calcular el ROI, se debe ingresar:
   - Ganancia neta
   - Inversion
-    Se calculará el ROI y un historial de resultados. """)
+  
+  Se calculará el ROI y un historial de resultados. """)
+  # Crear lista
+  if "historial" not in st.session_state:
+    st.session_state.historial = []
+  # Selector de función
+  funcion = st.selectbox("Seleccione función:",["Calcular ROI"])
+  # Widgets según función
+  if funcion = "Calcular ROI":
+    ganancia = st.number_input("Ganancia neta:",value = 0)
+    inversion = st.number_input("Inversión:",value = 0, min_value = 0)
+  #Ejecutar función
+  if st.button ("Ejecutar función"):
+    if inversion > 0:
+      resultado = calcular_roi(ganancia, inversion)
+      st.subheader("Restulado")
+      st.write ("ROI obtenido:", {resultado['roi_pct']})
+    else:
+      st.error("La inversión debe ser mayor a cero")
 
 else:
   st.write("Ejercicio 4")
