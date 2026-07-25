@@ -57,19 +57,22 @@ elif modulo == "Ejercicio 1":
     st.dataframe(df, use_container_width = True)
 
   #Calculos
-  ingresos = df[df["Tipo"] == "Ingreso"]["Valor"].sum()
-  gastos = df[df["Tipo"] == "Gasto"]["Valor"].sum()
-  saldo = ingresos - gastos
+    ingresos = df[df["Tipo"] == "Ingreso"]["Valor"].sum()
+    gastos = df[df["Tipo"] == "Gasto"]["Valor"].sum()
+    saldo = ingresos - gastos
 
   #Resultados
-  st.subheader("Resultados")
-  st.metric("Total ingresos", ingresos)
-  st.metric("Total gastos", gastos)
-  st.metric("Saldo", saldo)
-  if saldo >= 0:
-    st.success("Flujo de caja a favor.")
+    st.subheader("Resultados")
+    st.metric("Total ingresos", ingresos)
+    st.metric("Total gastos", gastos)
+    st.metric("Saldo", saldo)
+    if saldo >= 0:
+      st.success("Flujo de caja a favor.")
+    else:
+      st.error("Flujo de caja en contra.")
+      
   else:
-    st.error("Flujo de caja en contra.")
+    st.info("No hay movimientos registrados")
 
 
 elif modulo == "Ejercicio 2":
