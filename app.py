@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+import pandas as pd
 
 st.sidebar.title("Indice")
 
@@ -48,6 +49,12 @@ elif modulo == "Ejercicio 1":
       st.success("Movimiento agregado")
     else:
       st.error("Debe ingresar un concepto y un valor")
+
+  #Mostrar tabla
+  if st.session_state.movimientos:
+    df = pd.DataFrame(st.session_satate.movimientos)
+    st.markdown("### Movimientos registrados ###")
+    st.dataframe(df, use_container_width = True)
 
 elif modulo == "Ejercicio 2":
   st.subheader("Ejercicio 2")
