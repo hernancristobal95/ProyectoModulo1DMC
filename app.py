@@ -30,7 +30,33 @@ elif modulo == "Ejercicio 1":
   - Valor
   
   La aplicación mostrará el total de ingresos, gastos, saldo y el estado del flujo de caja (a favor o en contra).""")
-  st.write("Estas en el módulo de arreglos")
+
+  #Crear la lista
+  if "movimientos" not in st.session_state:
+    st.session_state.movimientos = []
+  
+  #Registrar entradas
+  concepto = st.text_input("Concepto: ")
+  tipo = st.select_box("Movimiento: ",["Ingreso","Gasto"])
+  valor = st.number_input("Valor: ", value = 0)
+
+  #Botón para agregar a la lista
+  if st.button ("Agregar movimiento"):
+    if concepto != "" and valor > 0:
+      movimiento = {"Concepto": concepto, "Tipo": tipo, "Valor": valor}
+      st.session_state.movimientos.append(movimiento)
+      st.success("Movimiento agregado")
+    else:
+      st.error("Debe ingresar un concepto y un valor")
+
+elif modulo == "Ejercicio 2":
+  st.subheader("Ejercicio 2")
+
+elif modulo == "Ejercicio 3":
+  st.title("Ejercicio 3")
+else:
+  st.write("Ejercicio 4")
+    st.write("Estas en el módulo de arreglos")
   valor_inicial = st.number_input("Ingrese el valor inicial", value = 0)
   valor_final = st.number_input("Ingrese el valor final", value = 1)
   lista_numerica = list(range(valor_inicial, valor_final))
@@ -42,11 +68,3 @@ elif modulo == "Ejercicio 1":
   st.write(datos_produccion)
   st.write("La producción total es: ", np.sum(datos_produccion))
   st.write("La producción promedio es: ", np.mean(datos_produccion))
-
-elif modulo == "Ejercicio 2":
-  st.subheader("Ejercicio 2")
-
-elif modulo == "Ejercicio 3":
-  st.title("Ejercicio 3")
-else:
-  st.write("Ejercicio 4")
