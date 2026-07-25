@@ -146,16 +146,19 @@ elif modulo == "Ejercicio 3":
 
 
 else:
-  st.write("Ejercicio 4")
-  st.write("Estas en el módulo de arreglos")
-  valor_inicial = st.number_input("Ingrese el valor inicial", value = 0)
-  valor_final = st.number_input("Ingrese el valor final", value = 1)
-  lista_numerica = list(range(valor_inicial, valor_final))
-  st.write(lista_numerica)
-  limite_inferior = st.number_input("Ingrese el límite inferior:", value = 1200)
-  limite_superior = st.number_input("Ingrese el límite superior:", value = 1250)
-  cantidad_datos = st.number_input("Ingres la totalidad de datos a crear:", value = 31)
-  datos_produccion = np.random.randint(limite_inferior, limite_superior, cantidad_datos)
-  st.write(datos_produccion)
-  st.write("La producción total es: ", np.sum(datos_produccion))
-  st.write("La producción promedio es: ", np.mean(datos_produccion))
+  # Importamos la función
+  from libreria_clases_proyecto1 import ProyectoInversion
+  # Título y descripción del ejercicio
+  st.title("Ejercicio 4")
+  st.markdown("""### Descripción
+  Esta aplicación utiliza una clase externa llamada `ProyectoInversion`.
+  Permite registrar proyectos de inversión y realizar operaciones CRUD:
+  - Crear proyectos
+  - Leer proyectos registrados
+  - Actualizar información
+  - Eliminar proyectos
+  Además calcula:
+  - VPN
+  - ROI
+  - Payback
+  - Decisión de viabilidad""")
