@@ -147,7 +147,7 @@ elif modulo == "Ejercicio 3":
 
 else:
   # Importamos la función
-  from libreriia_clases_proyecto1 import ProyectoInversion
+  from libreria_clases_proyecto1 import ProyectoInversion
   # Título y descripción del ejercicio
   st.title("Ejercicio 4")
   st.markdown("""### Descripción
