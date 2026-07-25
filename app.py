@@ -22,13 +22,13 @@ if modulo == "Home":
   
 elif modulo == "Ejercicio 1":
   st.title("Ejercicio 1")
-  st.markdown("### Descripción
+  st.markdown("""### Descripción
   Registre los movimientos financieros de una empresa.
   Cada movimiento debe incluir:
   - Concepto
   - Tipo de movimiento (Ingreso o Gasto)
   - Valor
-  Al final se mostrará el total de ingresos, gastos, saldo y el estado del flujo de caja.")
+  Al final se mostrará el total de ingresos, gastos, saldo y el estado del flujo de caja.""")
   st.write("Estas en el módulo de arreglos")
   valor_inicial = st.number_input("Ingrese el valor inicial", value = 0)
   valor_final = st.number_input("Ingrese el valor final", value = 1)
