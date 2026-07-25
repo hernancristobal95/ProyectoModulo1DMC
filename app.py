@@ -77,6 +77,7 @@ elif modulo == "Ejercicio 2":
   - Precio
   - Cantidad
   - Total
+  
   Los datos serán almacendos en arrays y convertidos en un DataFrame. """)
 
 
