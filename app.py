@@ -88,7 +88,7 @@ elif modulo == "Ejercicio 2":
   categoria = st.selectbox("Categoría:",["Alimentos","Bebidas","Tecnología","Deportes","Ropa","Juguetes","Otros"])
   precio = st.number_input("Precio:", value = 0.50, min_value = 0.50)
   cantidad = st.number_input("Cantidad:", value = 1, min_value = 1)
-  total = precio * cantidad
+  total = round(precio * cantidad, 2)
   # Botón para agregar
   if st.button("Agregar producto"):
     if producto != "" and precio >= 0.50 and cantidad >= 1:
