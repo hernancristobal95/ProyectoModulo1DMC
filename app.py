@@ -31,16 +31,13 @@ elif modulo == "Ejercicio 1":
   - Valor
   
   La aplicación mostrará el total de ingresos, gastos, saldo y el estado del flujo de caja (a favor o en contra).""")
-
   #Crear la lista
   if "movimientos" not in st.session_state:
     st.session_state.movimientos = []
-  
   #Registrar entradas
   concepto = st.text_input("Concepto: ")
   tipo = st.selectbox("Movimiento: ", ["Ingreso","Gasto"])
   valor = st.number_input("Valor: ", value = 0)
-
   #Botón para agregar a la lista
   if st.button ("Agregar movimiento"):
     if concepto != "" and valor > 0:
@@ -49,18 +46,15 @@ elif modulo == "Ejercicio 1":
       st.success("Movimiento agregado")
     else:
       st.error("Debe ingresar un concepto y un valor")
-
   #Mostrar tabla
   if st.session_state.movimientos:
     df = pd.DataFrame(st.session_state.movimientos)
     st.subheader("Movimientos registrados")
     st.dataframe(df, use_container_width = True)
-
   #Calculos
     ingresos = df[df["Tipo"] == "Ingreso"]["Valor"].sum()
     gastos = df[df["Tipo"] == "Gasto"]["Valor"].sum()
     saldo = ingresos - gastos
-
   #Resultados
     st.subheader("Resultados")
     st.metric("Total ingresos", ingresos)
@@ -70,13 +64,21 @@ elif modulo == "Ejercicio 1":
       st.success("Flujo de caja a favor.")
     else:
       st.error("Flujo de caja en contra.")
-      
   else:
     st.info("No hay movimientos registrados")
 
 
 elif modulo == "Ejercicio 2":
-  st.subheader("Ejercicio 2")
+  st.title("Ejercicio 2")
+  st.markdown("""### Descripción
+  Crear un formulario para registrar productos usando NumPy. Cada registro contiente:
+  - Nombre del producto
+  - Categoría
+  - Precio
+  - Cantidad
+  - Total
+  Los datos serán almacendos en arrays y convertidos en un DataFrame. """)
+
 
 elif modulo == "Ejercicio 3":
   st.title("Ejercicio 3")
