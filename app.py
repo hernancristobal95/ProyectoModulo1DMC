@@ -124,7 +124,7 @@ elif modulo == "Ejercicio 3":
   # Selector de función
   funcion = st.selectbox("Seleccione función:",["Calcular ROI"])
   # Widgets según función
-  if funcion = "Calcular ROI":
+  if funcion == "Calcular ROI":
     ganancia = st.number_input("Ganancia neta:",value = 0)
     inversion = st.number_input("Inversión:",value = 0, min_value = 0)
   #Ejecutar función
