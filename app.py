@@ -8,12 +8,18 @@ modulo = st.sidebar.selectbox("Elija una sección", ["Home", "Ejercicio 1","Ejer
 if modulo == "Home":
   st.title("Proyecto Módulo 1 Fundamentals")
   st.image("Python_logo.png")
-  st.subheader("Hernan Martin Cristobal Ramos")
-  st.subheader("Módulo Python Fundamentals")
+  st.subheader("Nombre alumno:")
+  st.write("Hernan Martin Cristobal Ramos")
+  st.subheader("Nombre del módulo:")
+  st.write("Módulo Python Fundamentals")
+  st.subheader("Información del estudiante:")
   st.write("Ingeniero Industrial con más de 9 años de experiencia en el rubro de banca y seguros en analítica de datos y gestión de productos")
-  st.markdown("***2026***")
+  st.subheader("Descripción del proyecto:")
   st.write("Desarrollar una aplicación interactiva en Streamlit que integre los conceptos del Módulo 1 del curso: variables, estructuras de datos, control de flujo, funciones, programación funcional y programación orientada a objetos.")
+  st.subheader("Tecnologías usadas:")
   st.write("Python, Github, Sreamlit")
+  
+  st.markdown("***2026***")
   
 elif modulo == "Ejercicio 1":
   st.write("Estas en el módulo de arreglos")
