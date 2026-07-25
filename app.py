@@ -82,7 +82,7 @@ elif modulo == "Ejercicio 2":
   Los datos serán almacendos en arrays y convertidos en un DataFrame. """)
   # Crear array
   if "productos" not in st.session_state:
-  st.session_state.productos = np.empty((0,5), dtype = object)
+    st.session_state.productos = np.empty((0,5), dtype = object)
   # Formulario para registrar los productos
   producto = st.text_input("Nombre:")
   categoria = st.selectbox("Categoría:",["Alimentos","Bebidas","Tecnología","Deportes","Ropa","Juguetes","Otros"])
