@@ -163,3 +163,61 @@ else:
   - ROI
   - Payback
   - Decisión de viabilidad""")
+  # Almacenar objetos
+  if "proyectos" not in st.session_state:
+    st.session_state.proyectos = []
+  # Crear pestañas
+  tab1, tab2, tab3 = st.tabs(["Crear proyecto", "Actualizar / Eliminar", "Resultados"])
+  # Crear
+  with tab1:
+    st.subheader("Nuevo proyecto")
+    nombre = st.text_input("Ingrese nombre del proyecto:")
+    inversion = st.number_input("Inversion inicial:",value = 0, min_value = 0)
+    flujos_texto = st.text_input("Flujos de caja separados por coma", placeholder = "Ejemplo: 5000, 6000, 7000")
+    tasa = st.number_input("Tasa de descuento (%)", min_value = 0.0)
+    if st.button("Crear proyecto"):
+      try:
+        flujos = [float(x), for x in flujos_texto.split(",")]
+        proyecto = ProyectoInversion(nombre, inversion, flujos,tasa)
+        st.session_state.proyectos.append(proyecto)
+        st.success("Proyecto creado correctamente")
+      except Exception as e:
+        st.error(e)
+   # Actualizar / Eliminar
+  with tab2:
+    st.subheader("Gestión de proyectos")
+    if st.session_state.proyectos:
+      nombres = [p.nombre_proyecto for p in st.session_state.proyectos]
+      seleccionado = st.selectbox("Seleccione proyecto:", nombres)
+      indice = nombres.index(seleccionado)
+      proyecto = st.session_state.proyectos[indice]
+      nuevo_nombre = st.text_input("Nuevo nombre", value = proyecto.nombre_proyecto)
+      if st.button ("Actualizar"):
+        proyecto.nombre_proyecto = nuevo_nombre
+        st.success("Proyecto actualizado")
+      if st.button ("Eliminar"):
+        st.session_state.proyectos.pop(indice)
+        st.success("Proyecto eliminado")
+    else:
+      st.info("No existen proyectos registrados")
+  # Leer resultados
+  with tab3:
+    st.subheader("Proyectos registrados")
+    if st.session_state.proyectos:
+      datos =[]
+      for proyecto in st.session_state.proyectos:
+        datos.append(proyecto.resumen())
+      df = pd.DataFrame(datos)
+      st.dataframe(df, use_container_width = True)
+      st.subheader("Indicadores")
+      proyecto_sel = st.selectbox("Ver detalle",df["proyecto"])
+      resultado = df[df["proyecto"] == proyecto_sel].iloc[0]
+      st.metric("VPN",f"{resultado['vpn']:.2f}")
+      st.metric("ROI",f"{resultado['roi_pct']} %")
+      st.metric("Payback",f"{resultado['payback_anios']} años")
+      if resultado["decision"] == "Viable":
+        st.success("Proyecto viable")
+      else:
+        st.error("Proyecto no viable")
+    else:
+      st.info("No hay proyectos registrados")
