@@ -91,12 +91,20 @@ elif modulo == "Ejercicio 2":
   total = precio * cantidad
   # Botón para agregar
   if st.button("Agregar producto"):
-    if producto != "" and precio > 0.50 and cantidad > 1:
+    if producto != "" and precio >= 0.50 and cantidad >= 1:
       registro = np.array([[producto, categoria, precio, cantidad, total]])
       st.session_state.productos = np.vstack([st.session_state.productos, registro])
       st.success("Producto agregado correctamente")
     else:
       st.error("Ingrese un nombre, un precio valido y una cantidad")
+  # Mostrar DataFrame
+  if len(st.session_state.productos) > 0:
+    columnas = ["Producto","Categoría","Precio","Cantidad","Total"]
+    df = pd.DataFrame(st.session_state.productos,columns=columnas)
+    st.subheader("Lista de Productos")
+    st.dataframe(df,use_container_width=True)
+  else:
+    st.info("No hay productos registrados")
 
 
 elif modulo == "Ejercicio 3":
