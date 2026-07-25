@@ -92,7 +92,7 @@ elif modulo == "Ejercicio 2":
   # Botón para agregar
   if st.button("Agregar producto"):
     if producto != "" and precio > 0.50 and cantidad > 1:
-      registro = np.array([[nombre, categoria, precio, cantidad, total]])
+      registro = np.array([[nombre, categoria, precio, cantidad, total]], dtype = object)
       st.session_state.productos = np.vstack([st.session_state.productos, registro])
       st.success("Producto agregado correctamente")
     else:
