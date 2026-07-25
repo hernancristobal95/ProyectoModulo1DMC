@@ -133,8 +133,17 @@ elif modulo == "Ejercicio 3":
       resultado = calcular_roi(ganancia, inversion)
       st.subheader("Restulado")
       st.success(f"ROI obtenido: {resultado['roi_pct']} %")
+      # Guardar histórico
+      registro = {"Función": funcion,"Ganancia neta": ganancia,"Inversión": inversion,"ROI (%)": resultado["roi_pct"]}
+      st.session_state.historial.append(registro)
     else:
       st.error("La inversión debe ser mayor a cero")
+  # Mostrar histórico
+  if st.session_state.historial:
+    st.subheader("Histórico de resultados")
+    df = pd.DataFrame(st.session_state.historial)
+    st.dataframe(df, use_container_width=True)
+
 
 else:
   st.write("Ejercicio 4")
