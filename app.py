@@ -63,13 +63,9 @@ elif modulo == "Ejercicio 1":
 
   #Resultados
   st.subheader("Resultados")
-  col1, col2, col3 = st.columns(3)
-  with col1:
-    st.metric("Total ingresos", ingresos)
-  with col2:
-    st.metric("Total gastos", gastos)
-  with col3:
-    st.metric("Saldo", saldo)
+  st.metric("Total ingresos", ingresos)
+  st.metric("Total gastos", gastos)
+  st.metric("Saldo", saldo)
   if saldo >= 0:
     st.success("Flujo de caja a favor.")
   else:
