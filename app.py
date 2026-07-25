@@ -24,9 +24,11 @@ elif modulo == "Ejercicio 1":
   st.title("Ejercicio 1")
   st.markdown("""### Descripción
   Registre los movimientos financieros. Cada movimiento debe tener:
+  
   - Concepto
   - Tipo de movimiento (Ingreso o Gasto)
   - Valor
+  
   La aplicación mostrará el total de ingresos, gastos, saldo y el estado del flujo de caja (a favor o en contra).""")
   st.write("Estas en el módulo de arreglos")
   valor_inicial = st.number_input("Ingrese el valor inicial", value = 0)
